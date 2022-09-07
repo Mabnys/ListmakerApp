@@ -9,28 +9,54 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.mamadou.listmaker.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    // Note that lateinit keyword indicates that a RecyclerView is going to be created sometime in the future as opposed to when the activity is created.
+    // Otherwise, we need to initialize the value right away, which a problem since our activity takes a little time to be generated.
+    lateinit var todoListRecyclerView: RecyclerView
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//
+//        binding = ActivityMainBinding.inflate(layoutInflater)
+//        setContentView(binding.root)
+//
+//        setSupportActionBar(binding.toolbar)
+//
+//        val navController = findNavController(R.id.nav_host_fragment_content_main)
+//        appBarConfiguration = AppBarConfiguration(navController.graph)
+//        setupActionBarWithNavController(navController, appBarConfiguration)
+//
+//        binding.fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
+//        }
+//    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
+        setContentView(R.layout.activity_main)
         setSupportActionBar(binding.toolbar)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        // Adding a reference to the RecyclerView by calling the function findViewById()
+        todoListRecyclerView = findViewById(R.id.lists_recyclerview)
+        // The RecyclerView needs to know which layout we are going to use for placing items. In our case, the Linear layout, which is a great way to place items.
+        todoListRecyclerView.layoutManager = LinearLayoutManager(this)
+        // Assign the Adapter (TodoListAdapter) to the RecyclerView by creating a new Adapter
+        todoListRecyclerView.adapter = TodoListAdapter()
+
+
 
         binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+            Snackbar.make(view, "Replace with own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
+
         }
     }
 
@@ -50,9 +76,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
-    }
+//    override fun onSupportNavigateUp(): Boolean {
+//        val navController = findNavController(R.id.nav_host_fragment_content_main)
+//        return navController.navigateUp(appBarConfiguration)
+//                || super.onSupportNavigateUp()
+//    }
 }
