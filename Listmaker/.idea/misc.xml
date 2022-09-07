@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/layout/content_main.xml" value="0.21945648193359377" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/todo_list_view_holder.xml" value="0.25181159420289856" />
       </map>
     </option>
   </component>
