@@ -7,7 +7,12 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TodoListAdapter : RecyclerView.Adapter<TodoListViewHolder>() {
     // Add an instance variable
-    private val todoLists = arrayOf("Android Development", "House Work", "Errands", "Shopping")
+    private var todoLists = mutableListOf("Android Development", "House Work", "Errands", "Shopping")
+
+    fun addNewItem() {
+        todoLists.add("Todo List " + (todoLists.size + 1))
+        notifyDataSetChanged() // Tells the RecycleView to reload all the data
+    }
     // This function creates a new View Holder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TodoListViewHolder {
         val view = LayoutInflater.from(parent.context)

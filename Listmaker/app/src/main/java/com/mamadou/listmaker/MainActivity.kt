@@ -1,7 +1,6 @@
 package com.mamadou.listmaker
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 //import androidx.navigation.findNavController
 //import androidx.navigation.ui.AppBarConfiguration
@@ -53,10 +52,9 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-
+        binding.fab.setOnClickListener {
+            val adapter = todoListRecyclerView.adapter as TodoListAdapter
+            adapter.addNewItem()
         }
     }
 
