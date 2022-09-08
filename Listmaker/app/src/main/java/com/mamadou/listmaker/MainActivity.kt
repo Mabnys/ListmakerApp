@@ -3,10 +3,10 @@ package com.mamadou.listmaker
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
+//import androidx.navigation.findNavController
+//import androidx.navigation.ui.AppBarConfiguration
+//import androidx.navigation.ui.navigateUp
+//import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,9 +16,9 @@ import com.mamadou.listmaker.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     // Note that lateinit keyword indicates that a RecyclerView is going to be created sometime in the future as opposed to when the activity is created.
     // Otherwise, we need to initialize the value right away, which a problem since our activity takes a little time to be generated.
-    lateinit var todoListRecyclerView: RecyclerView
+    private lateinit var todoListRecyclerView: RecyclerView
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+//    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
 //    override fun onCreate(savedInstanceState: Bundle?) {
